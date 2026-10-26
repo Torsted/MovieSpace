@@ -1,0 +1,288 @@
+/* Базовые сбросы и переменные */
+:root {
+    --primary-color: #6366f1;
+    --primary-hover: #4f46e5;
+    --dark-bg: #0f172a;
+    --card-bg: #1e293b;
+    --text-main: #f8fafc;
+    --text-muted: #94a3b8;
+    --error-color: #ef4444;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--dark-bg);
+    color: var(--text-main);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Шапка */
+.header {
+    background-color: var(--card-bg);
+    padding: 20px 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 1px solid #334155;
+}
+
+.header__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: var(--text-main);
+    text-decoration: none;
+}
+
+.logo span {
+    color: var(--primary-color);
+}
+
+.nav a {
+    color: var(--text-muted);
+    text-decoration: none;
+    margin-left: 20px;
+    transition: color 0.3s;
+}
+
+.nav a:hover, .nav a:focus {
+    color: var(--primary-color);
+    outline: none;
+}
+
+.burger-menu {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--text-main);
+    font-size: 24px;
+    cursor: pointer;
+}
+
+/* Промо */
+.hero {
+    text-align: center;
+    padding: 60px 0;
+}
+
+.hero h1 {
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+
+.hero p {
+    color: var(--text-muted);
+}
+
+/* Инструменты поиска */
+.toolbar {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.toolbar input, .toolbar select {
+    padding: 12px;
+    background-color: var(--card-bg);
+    border: 1px solid #334155;
+    color: var(--text-main);
+    border-radius: 6px;
+    font-size: 16px;
+}
+
+.toolbar input {
+    flex-grow: 1;
+}
+
+.toolbar input:focus, .toolbar select:focus {
+    outline: 2px solid var(--primary-color);
+}
+
+/* Сетка карточек (Grid) */
+.movie-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 25px;
+    margin-bottom: 50px;
+}
+
+.movie-card {
+    background-color: var(--card-bg);
+    border-radius: 8px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+    border: 1px solid #334155;
+}
+
+.movie-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+}
+
+.movie-card img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+}
+
+.movie-card__info {
+    padding: 15px;
+}
+
+.movie-card__title {
+    font-size: 18px;
+    margin-bottom: 8px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.movie-card__genre {
+    font-size: 14px;
+    color: var(--primary-color);
+}
+
+/* Форма */
+.booking-section {
+    background-color: var(--card-bg);
+    padding: 30px;
+    border-radius: 8px;
+    margin-bottom: 50px;
+}
+
+.booking-section h2 {
+    margin-bottom: 20px;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 500px;
+}
+
+.form__group {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.form__group label {
+    font-size: 14px;
+    color: var(--text-muted);
+}
+
+.form__group input {
+    padding: 12px;
+    border-radius: 6px;
+    border: 1px solid #334155;
+    background-color: var(--dark-bg);
+    color: var(--text-main);
+}
+
+.form__group input:focus {
+    outline: 2px solid var(--primary-color);
+}
+
+.error-message {
+    color: var(--error-color);
+    font-size: 12px;
+    height: 14px;
+}
+
+.btn-submit {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 14px;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.btn-submit:hover, .btn-submit:focus {
+    background-color: var(--primary-hover);
+    outline: none;
+}
+
+/* Модальное окно */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 200;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal.active {
+    display: flex;
+}
+
+.modal__content {
+    background-color: var(--card-bg);
+    padding: 30px;
+    border-radius: 8px;
+    max-width: 600px;
+    width: 90%;
+    position: relative;
+}
+
+.modal__close {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    background: none;
+    border: none;
+    color: var(--text-main);
+    font-size: 30px;
+    cursor: pointer;
+}
+
+/* Подвал */
+.footer {
+    text-align: center;
+    padding: 30px 0;
+    border-top: 1px solid #334155;
+    color: var(--text-muted);
+}
+
+/* Адаптивная верстка (Медиазапросы) */
+@media (max-width: 768px) {
+    .nav {
+        display: none; /* В реальном проекте тут открывался бы бургер */
+    }
+    .burger-menu {
+        display: block;
+    }
+    .toolbar {
+        flex-direction: column;
+    }
+    .hero h1 {
+        font-size: 28px;
+    }
+}

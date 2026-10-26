@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MovieSpace — Каталог фильмов</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container header__container">
+            <a href="#" class="logo">Movie<span>Space</span></a>
+            <nav class="nav">
+                <a href="#catalog" class="nav__link">Каталог</a>
+                <a href="#booking" class="nav__link">Бронирование</a>
+            </nav>
+            <button class="burger-menu" aria-label="Открыть меню">☰</button>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="hero">
+            <h1>Вселенная кино в одном месте</h1>
+            <p>Выбирайте лучшие новинки и бронируйте билеты на сеансы онлайн.</p>
+        </section>
+
+        <section id="catalog" class="catalog-section">
+            <h2>Каталог фильмов</h2>
+            <div class="toolbar">
+                <input type="text" id="search-input" placeholder="Поиск фильма по названию...">
+                <select id="genre-filter">
+                    <option value="all">Все жанры</option>
+                    <option value="Фантастика">Фантастика</option>
+                    <option value="Драма">Драма</option>
+                    <option value="Экшен">Экшен</option>
+                    <option value="Криминал">Криминал</option>
+                </select>
+            </div>
+            <div id="movie-grid" class="movie-grid"></div>
+        </section>
+
+        <section id="booking" class="booking-section">
+            <h2>Быстрое бронирование билета</h2>
+            <form id="booking-form" class="form" novalidate>
+                <div class="form__group">
+                    <label for="user-name">Ваше имя и фамилия:</label>
+                    <input type="text" id="user-name" name="name" required minlength="3" placeholder="Иван Иванов">
+                    <span class="error-message" id="name-error"></span>
+                </div>
+                <div class="form__group">
+                    <label for="user-email">Электронная почта:</label>
+                    <input type="email" id="user-email" name="email" required placeholder="example@mail.com">
+                    <span class="error-message" id="email-error"></span>
+                </div>
+                <div class="form__group">
+                    <label for="ticket-count">Количество билетов (от 1 до 5):</label>
+                    <input type="number" id="ticket-count" name="tickets" min="1" max="5" value="1" required>
+                    <span class="error-message" id="tickets-error"></span>
+                </div>
+                <div class="form__group">
+                    <label for="session-date">Дата сеанса:</label>
+                    <input type="date" id="session-date" name="date" required>
+                    <span class="error-message" id="date-error"></span>
+                </div>
+                <button type="submit" class="btn-submit">Забронировать</button>
+            </form>
+        </section>
+    </main>
+
+    <div id="movie-modal" class="modal">
+        <div class="modal__content">
+            <button class="modal__close">&times;</button>
+            <div id="modal-body"></div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 MovieSpace. Лабораторная работа №1.</p>
+        </div>
+    </footer>
+    <script src="js/main.js"></script>
+</body>
+</html>
